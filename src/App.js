@@ -7,7 +7,11 @@ import './components/Navbar.css';
 import './App.css';
 import Home from './pages/Home';
 import Parcels from './pages/Parcels';
-import Disponibility from './pages/Disponibility'
+import Disponibility from './pages/Disponibility';
+import Taches from './components/Taches';
+import './components/Taches.css';
+import './components/Card.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
@@ -16,6 +20,7 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
+          <Taches />
           <Route path='/' exact component={Home} />
           <Route path='/parcels' component={Parcels} />
           <Route path='/disponibility' component={Disponibility} />
