@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import EditTache from '../modals/EditTache'
 
-const Card = ({taskObj, index, deleteTask, updateListArray}) => {
+const Card = ({taskObj, index, deleteTask, updateListArray, cities}) => {
     const [modal, setModal] = useState(false)
 
     const colors = [
@@ -40,21 +40,25 @@ const Card = ({taskObj, index, deleteTask, updateListArray}) => {
     }
 
     return (
-        <div class='card-wrapper mr-5'>
+        <div className='card-wrapper mr-5'>
 
-            <div class='card-top' style={{'backgroundColor': colors[index%5].primaryColor}}></div>
-            <div class='task-holder'>
+            <div className='card-top' style={{'backgroundColor': colors[index%5].primaryColor}}></div>
+            <div className='task-holder'>
 
-                <span class='card-header' style={{'backgroundColor': colors[index%5].secondaryColor, 'border-Radius': '10px'}}>{taskObj.Name}</span>
+                <span className='card-header' style={{'backgroundColor': colors[index%5].secondaryColor, 'borderRadius': '10px'}}>{taskObj.Name}</span>
+                <p className='mt-3'>{taskObj.city}</p>
                 <p className='mt-3'>{taskObj.Description}</p>
 
+                <p className='mt-3'>Heure de début : {taskObj.startTime}</p>
+                <p className='mt-3'>Heure de fin : {taskObj.endTime}</p>
+
                 <div style={{'position': 'absolute', 'right': '20px', 'bottom': '20px'}}>
-                    <i class='far fa-edit mr-4' style={{'color': colors[index%5].primaryColor, 'cursor': 'pointer'}} onClick={() => setModal(true)}></i>
-                    <i class='far fa-trash-alt' style={{'color': colors[index%5].primaryColor, 'cursor': 'pointer'}} onClick={handleDelete}></i>
+                    <i className='far fa-edit mr-4' style={{'color': colors[index%5].primaryColor, 'cursor': 'pointer'}} onClick={() => setModal(true)}></i>
+                    <i className='far fa-trash-alt' style={{'color': colors[index%5].primaryColor, 'cursor': 'pointer'}} onClick={handleDelete}></i>
                 </div>
 
             </div>
-            <EditTache modal={modal} toggle={toggle} updateTask={updateTask} taskObj={taskObj}/>
+            <EditTache modal={modal} toggle={toggle} updateTask={updateTask} taskObj={taskObj} cities={cities}/>
         </div>
     );
 };

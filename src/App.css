@@ -17,3 +17,8 @@
     font-size: 3rem;
 }
 
+html {
+    position: relative;
+    min-height: 95vh;
+}
+

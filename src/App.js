@@ -12,6 +12,7 @@ import Taches from './components/Taches';
 import './components/Taches.css';
 import './components/Card.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from './components/footer/Footer';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path='/disponibility' component={Disponibility} />
         </Switch>
       </Router>
+      <Footer />
     </>
   );
 }

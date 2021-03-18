@@ -43,6 +43,9 @@ const Taches = () => {
         setModal(false)
     }
 
+    const CITIES = ['Paris', 'Lyon', 'Toulouse','Auxerre', 'Marseille', 'Strasbourg', 'Lille', 'Bordeaux', 'Nantes']
+
+
     return(
         <>
             <div className='header'>
@@ -50,9 +53,9 @@ const Taches = () => {
                 <button className='bouton' onClick={() => setModal(true)}>Création de tache</button>
             </div>
             <div className='task-container'>
-                {listeTaches && listeTaches.map((listeTache , index) => <Card taskObj={listeTache} index={index} deleteTask={deleteTask} updateListArray={updateListArray}/>)}
+                {listeTaches && listeTaches.map((listeTache , index) => <Card taskObj={listeTache} index={index} deleteTask={deleteTask} updateListArray={updateListArray} cities={CITIES}/>)}
             </div>
-            <CreationTache toggle={toggle} modal={modal} save={saveTache}/>
+            <CreationTache toggle={toggle} modal={modal} save={saveTache} cities={CITIES}/>
         </>
     );
 }
